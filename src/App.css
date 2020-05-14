@@ -44,3 +44,9 @@
   border: 1px solid #282c34;
   border-radius: 10px;
 }
+
+.container-lights {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
