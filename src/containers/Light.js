@@ -3,7 +3,7 @@ import Light from "../components/Light";
 
 const mapStateToProps = state => {
   return {
-    lightbulbs: state.light.lightbulbs,
+    lightbulbs: state.lightReducer.lightbulbs,
   }
 };
 const mapDispatchToProps = dispatch => {
