@@ -19,24 +19,23 @@ const initialState = {
 
 function lightReducer(state = initialState, action) {
   switch (action.type) {
-    case "LIGHTBULBS_CLICKED":
+    case 'LIGHTBULBS_CLICKED':
+const changeState = state.lightbulbs.slice();
       let indexToUpdate;
-      state.lightbulbs.forEach((lightbulb, index) => {
+     changeState.forEach((lightbulb, index) => {
         if (lightbulb.id === action.payload.id) {
           indexToUpdate = index;
+           state.lightbulbs[indexToUpdate].flashed=!state.lightbulbs[indexToUpdate].flashed
           
         }
       });
 
       return update(state, {
-        lightbulbs: {
-          [indexToUpdate]: {
-            flashed: {
-              $set: !lightbulbs[indexToUpdate].flashed,
-            },
-          },
-        },
-      });
+        $merge:
+          {
+            lightbulbs: changeState,
+          }
+        });
       default:
       return state
   }
