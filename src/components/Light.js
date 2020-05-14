@@ -6,13 +6,13 @@ function Light({ lightbulbs, onItemClicked }) {
       {lightbulbs.map(({ id, flashed }) => (
         <div className="lightbulbs" key={id}>
           {flashed === true ? (
-            <img onClick={onItemClicked}
+            <img onClick={onItemClicked.bind(this, id)}
               className="switched-off"
               src="switched_off.png"
               alt="выключенная лампочка"
             />
           ) : (
-            <img onClick={onItemClicked}
+            <img onClick={onItemClicked.bind(this, id)}
             className="flash" 
             src="flash.png" 
             alt="включенная лампочка" 
